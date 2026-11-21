@@ -1,6 +1,6 @@
 package com.example.library_management.controller.LibraryMember;
 
-public class borrowingBookHistoryAndLoanController
+public class viewBorrowingBookHistoryAndLoanController
 {
     @javafx.fxml.FXML
     public void initialize() {

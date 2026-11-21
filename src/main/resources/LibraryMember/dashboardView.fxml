@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="589.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.LibraryMember.dashboardController">
     <children>
-        <Button layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: pink; -fx-background-radius: 5;" text="Library ManageMent System">
+        <Button layoutY="3.0" mnemonicParsing="false" onAction="#libraryManagementButtonOnAction" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: pink; -fx-background-radius: 5;" text="Library ManageMent System">
             <font>
                 <Font name="Arial Bold" size="13.0" />
             </font>
@@ -35,15 +35,15 @@
             </cursor>
         </Button>
         <Line endX="92.09291076660156" endY="-7.62939453125E-6" layoutX="108.0" layoutY="42.0" startX="-108.0" />
-        <Button layoutX="6.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="5.0" layoutY="103.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="150.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="196.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="243.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="290.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
+        <Button layoutX="6.0" layoutY="57.0" mnemonicParsing="false" onAction="#applyForLibraryMemberShipButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Apply for Library Membership" />
+        <Button layoutX="5.0" layoutY="103.0" mnemonicParsing="false" onAction="#viewBorrowingHistoryAndLoanButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="View Borrowing History &amp; Loan" />
+        <Button layoutX="6.0" layoutY="150.0" mnemonicParsing="false" onAction="#CheckOutstandingFineButtonOnAction" prefHeight="44.0" prefWidth="194.0" text=" Check Outstanding Fine Balance" />
+        <Button layoutX="6.0" layoutY="196.0" mnemonicParsing="false" onAction="#realTimeBookAvailabilityButtonOnAction" prefHeight="44.0" prefWidth="194.0" text=" Real-Time Book Availability" />
+        <Button layoutX="6.0" layoutY="243.0" mnemonicParsing="false" onAction="#requestOfBorrowingBookButtonOnAction" prefHeight="44.0" prefWidth="194.0" text=" Request of Borrowing Book" />
+        <Button layoutX="6.0" layoutY="290.0" mnemonicParsing="false" onAction="#requestOnlineBookLoanRenewalButtonOnAction" prefHeight="44.0" prefWidth="194.0" text=" Request Online Book Loan Renewal " />
+        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" onAction="#reserveCurrentlyIssuedBookButtonOnAction" prefHeight="44.0" prefWidth="194.0" text=" Reserve Currently Issued Book" />
+        <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" onAction="#searchPublicBookCatalogButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Search Public Book Catalog" />
+        <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
         <AnchorPane layoutX="201.0" layoutY="3.0" prefHeight="581.0" prefWidth="568.0" />
     </children>
 </AnchorPane>
