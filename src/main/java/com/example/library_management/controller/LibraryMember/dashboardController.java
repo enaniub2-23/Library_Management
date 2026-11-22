@@ -12,13 +12,6 @@ public class dashboardController
     public void realTimeBookAvailabilityButtonOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void searchPublicBookCatalogButtonOnAction(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void CheckOutstandingFineButtonOnAction(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void applyForLibraryMemberShipButtonOnAction(ActionEvent actionEvent) {
@@ -36,15 +29,25 @@ public class dashboardController
     public void requestOnlineBookLoanRenewalButtonOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void viewBorrowingHistoryAndLoanButtonOnAction(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void requestOfBorrowingBookButtonOnAction(ActionEvent actionEvent) {
     }
 
+
     @javafx.fxml.FXML
-    public void reserveCurrentlyIssuedBookButtonOnAction(ActionEvent actionEvent) {
+    public void reserveBookButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void searchBookButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void myAccountAndFineButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void viewBorrowingHistoryButtonOnAction(ActionEvent actionEvent) {
     }
 }
