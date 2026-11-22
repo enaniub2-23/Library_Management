@@ -35,15 +35,15 @@
             </cursor>
         </Button>
         <Line endX="92.09291076660156" endY="-7.62939453125E-6" layoutX="108.0" layoutY="42.0" startX="-108.0" />
-        <Button layoutX="6.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="5.0" layoutY="103.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="150.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="196.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="243.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="290.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" text="Button" />
-        <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
+        <Button layoutX="6.0" layoutY="57.0" mnemonicParsing="false" onAction="#addNewBookOA" prefHeight="44.0" prefWidth="194.0" text="Add New Book To Catalog" />
+        <Button layoutX="5.0" layoutY="103.0" mnemonicParsing="false" onAction="#updateExistingBookInformationOA" prefHeight="44.0" prefWidth="194.0" text="Update Existing Book Information" />
+        <Button layoutX="6.0" layoutY="150.0" mnemonicParsing="false" onAction="#removedDamagedOrLostBookCopyOA" prefHeight="44.0" prefWidth="194.0" text="Remove Damaged Or Lost Book Copy" />
+        <Button layoutX="6.0" layoutY="196.0" mnemonicParsing="false" onAction="#processPhysicalBookIssueOA" prefHeight="44.0" prefWidth="194.0" text="Process Physical Book Issue" />
+        <Button layoutX="6.0" layoutY="243.0" mnemonicParsing="false" onAction="#processReturnedBookOA" prefHeight="44.0" prefWidth="194.0" text="Process Returned Book" />
+        <Button layoutX="6.0" layoutY="290.0" mnemonicParsing="false" onAction="#processLoanRenewalForEligibleMemberOA" prefHeight="44.0" prefWidth="194.0" text="Process Loan Renewal For Eligible Member" />
+        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" onAction="#processPriorityBookReservationRequestsOA" prefHeight="44.0" prefWidth="194.0" text="Process Priority Book Reservation Requests" />
+        <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" onAction="#generatesDailyCirculationSummaryReportOA" prefHeight="44.0" prefWidth="194.0" text="Generates Daily Circulation Summary Report" />
+        <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" onAction="#logOutButtonOA" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
         <AnchorPane layoutX="201.0" layoutY="3.0" prefHeight="581.0" prefWidth="568.0" />
     </children>
 </AnchorPane>
