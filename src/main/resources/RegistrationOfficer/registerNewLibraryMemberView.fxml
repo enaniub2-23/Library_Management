@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.library_management.controller.RegistrationOfficer.registerNewLibraryMemberController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.RegistrationOfficer.registerNewLibraryMemberController">
+   <children>
+      <Text layoutX="33.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
+      <TextField fx:id="nameTextField" layoutX="88.0" layoutY="27.0" />
+      <Text layoutX="26.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />
+      <TextField fx:id="nIDTextField" layoutX="88.0" layoutY="65.0" />
+      <Text layoutX="40.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NID:" />
+      <TextField fx:id="phoneTextField" layoutX="85.0" layoutY="106.0" />
+      <Text layoutX="24.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+      <TextArea fx:id="addressTextArea" layoutX="85.0" layoutY="142.0" prefHeight="43.0" prefWidth="200.0" />
+      <Button layoutX="26.0" layoutY="338.0" mnemonicParsing="false" onAction="#backToDashBoardButtonOnAction" prefHeight="26.0" prefWidth="180.0" text="Back To Dashboard" />
+      <Button layoutX="35.0" layoutY="200.0" mnemonicParsing="false" onAction="#validateAndConfirmRegistrationButtonOnAction" prefHeight="26.0" prefWidth="222.0" text="Validate And Confirm Registration" />
+      <Label fx:id="showGeneratedMemberIdLabel" layoutX="38.0" layoutY="253.0" prefHeight="35.0" prefWidth="242.0" style="-fx-background-color: pink;" text="Show Generated Member ID:" />
+   </children>
 </AnchorPane>

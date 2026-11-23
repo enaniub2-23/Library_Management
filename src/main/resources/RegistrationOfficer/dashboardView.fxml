@@ -41,7 +41,7 @@
         <Button layoutX="6.0" layoutY="196.0" mnemonicParsing="false" onAction="#renewAnnualMembershipSubscriptionButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Renew Annual Member Subscription " />
         <Button layoutX="6.0" layoutY="243.0" mnemonicParsing="false" onAction="#updateMemberProfileInformationButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Update Member Profile Information" />
         <Button layoutX="6.0" layoutY="290.0" mnemonicParsing="false" onAction="#deactivateMemberAccountButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Deactivate Member Account" />
-        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" onAction="#searchMemberRecordsDatabaseButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Search Member Records Database " />
+        <Button layoutX="6.0" layoutY="339.0" mnemonicParsing="false" onAction="#searchMemberRecordsDatabaseButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Search Member Record " />
         <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" onAction="#generateRegistrationSummaryReportButtonOnAction" prefHeight="44.0" prefWidth="194.0" text="Generate Registration Summary Report" />
         <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
         <AnchorPane layoutX="201.0" layoutY="3.0" prefHeight="581.0" prefWidth="568.0" />
