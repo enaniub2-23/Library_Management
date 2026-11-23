@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="483.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.processPhysicalBookReservationRequestsController">
    <children>
       <Label layoutX="169.0" layoutY="14.0" text="Process Physical Book Issue">
@@ -19,5 +18,6 @@
       <Button layoutX="274.0" layoutY="157.0" mnemonicParsing="false" onAction="#issueBookOA" text="Issue Book" />
       <TextField fx:id="enterMemberIdTF" layoutX="151.0" layoutY="51.0" />
       <TextField fx:id="isbnNoTF" layoutX="151.0" layoutY="89.0" />
+      <Button layoutX="453.0" layoutY="400.0" mnemonicParsing="false" onAction="#backToDashboardOA" text="Back To Dashboard" />
    </children>
 </AnchorPane>
