@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.library_management.controller.RegistrationOfficer.deactivateMemberAccountController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.RegistrationOfficer.deactivateMemberAccountController">
+   <children>
+      <Text layoutX="52.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID :" />
+      <TextField fx:id="memberIdTextField" layoutX="135.0" layoutY="31.0" />
+      <Text layoutX="11.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deactivation Reason :" />
+      <TextArea fx:id="deactivationReasonTextArea" layoutX="134.0" layoutY="72.0" prefHeight="74.0" prefWidth="378.0" />
+      <Button layoutX="28.0" layoutY="200.0" mnemonicParsing="false" onAction="#confirmDeactivationButtonOnAction" prefHeight="26.0" prefWidth="157.0" text="Confirm Deactivation" />
+      <Button layoutX="28.0" layoutY="344.0" mnemonicParsing="false" onAction="#backToDashBoardButtonOnAction" prefHeight="26.0" prefWidth="157.0" text="Back To Dashboard" />
+   </children>
 </AnchorPane>
