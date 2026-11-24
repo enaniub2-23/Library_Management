@@ -1,6 +1,7 @@
 package user;
 
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 
 public abstract class User implements Serializable {
     protected final int id;
@@ -51,5 +52,20 @@ public abstract class User implements Serializable {
                 '}';
     }
     public abstract String getDashboardFXML();
+
+    public boolean login(int id, String pw){
+        return this.id ==id && this.password.equals(pw);
+    }
+    public boolean changePw(String oldPw,String newPw){
+        if(this.password.equals(oldPw) && newPw != null && newPw.length() >=3){
+            this.password=newPw;
+            return true;
+        }
+        return false;
+    }
+    public void updateProfile(String email,String phone){
+        this.email=email;
+        this.phoneNo=phone;
+    }
 
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="589.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.dashboardController">
+<AnchorPane prefHeight="589.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.LibrarianDashboardController">
     <children>
         <Button layoutY="3.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: pink; -fx-background-radius: 5;" text="Library ManageMent System">
             <font>
