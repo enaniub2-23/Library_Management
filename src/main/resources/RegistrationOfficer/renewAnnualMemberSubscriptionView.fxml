@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.library_management.controller.RegistrationOfficer.renewAnnualMemberSubscriptionController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.RegistrationOfficer.renewAnnualMemberSubscriptionController">
+   <children>
+      <Text layoutX="60.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memebr ID:" />
+      <TextField fx:id="memberIdTextField" layoutX="147.0" layoutY="25.0" />
+      <Text layoutX="27.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Renewal Duration:" />
+      <ComboBox fx:id="renewalDurationComboBox" layoutX="146.0" layoutY="72.0" prefWidth="150.0" />
+      <Button layoutX="27.0" layoutY="136.0" mnemonicParsing="false" onAction="#confirmRenewalButtonOnAction" prefHeight="26.0" prefWidth="175.0" text="Confirm Renewal" />
+      <Button layoutX="37.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="26.0" prefWidth="204.0" text="Back To Dashboard" />
+   </children>
 </AnchorPane>
