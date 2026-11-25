@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="519.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.addNewBookToCatalogDataBaseController">
    <children>
       <Label layoutX="133.0" layoutY="14.0" text="Add New Book To Catalog Database">
@@ -25,7 +24,8 @@
       <TextField fx:id="authorTF" layoutX="111.0" layoutY="126.0" />
       <ComboBox fx:id="categoryCB" layoutX="111.0" layoutY="160.0" prefWidth="150.0" />
       <TextField fx:id="copiesTF" layoutX="111.0" layoutY="194.0" />
-      <Button layoutX="336.0" layoutY="168.0" mnemonicParsing="false" onAction="#backToDashBoardOA" text="Back To Dashboard" />
+      <Button layoutX="430.0" layoutY="452.0" mnemonicParsing="false" onAction="#backToDashBoardOA" text="Back To Dashboard" />
       <Button layoutX="336.0" layoutY="103.0" mnemonicParsing="false" onAction="#validateAndSaveBookOA" text="Validate &amp; save Book" />
+      <Label fx:id="statusLabel" layoutX="90.0" layoutY="270.0" prefHeight="86.0" prefWidth="441.0" text="Label" />
    </children>
 </AnchorPane>
