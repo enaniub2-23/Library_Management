@@ -1,6 +1,6 @@
 package com.example.library_management.controller.bookSupplier;
 
-public class dashboardController
+public class BookSupplierDashboardController
 {
     @javafx.fxml.FXML
     public void initialize() {

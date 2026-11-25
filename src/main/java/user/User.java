@@ -54,7 +54,11 @@ public abstract class User implements Serializable {
     public abstract String getDashboardFXML();
 
     public boolean login(int id, String pw){
-        return this.id ==id && this.password.equals(pw);
+
+        if(this.id ==id && this.password.equals(pw)){
+            return true;
+        }
+        return false;
     }
     public boolean changePw(String oldPw,String newPw){
         if(this.password.equals(oldPw) && newPw != null && newPw.length() >=3){
