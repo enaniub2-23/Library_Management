@@ -2,6 +2,7 @@ module com.example.library_management {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires jdk.compiler;
 
 
     opens com.example.library_management to javafx.fxml;
