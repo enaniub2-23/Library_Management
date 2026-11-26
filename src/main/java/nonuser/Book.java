@@ -7,16 +7,14 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private String category;
-    private String rackLocation;
     private int availableCopies;
     private double unitPrice;
 
-    public Book(String isbn, String title, String author, String category, String rackLocation, int availableCopies, double unitPrice) {
+    public Book(String isbn, String title, String author, String category, int availableCopies, double unitPrice) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.category = category;
-        this.rackLocation = rackLocation;
         this.availableCopies = availableCopies;
         this.unitPrice = unitPrice;
     }
@@ -37,9 +35,6 @@ public class Book implements Serializable {
         return category;
     }
 
-    public String getRackLocation() {
-        return rackLocation;
-    }
 
     public int getAvailableCopies() {
         return availableCopies;
@@ -59,10 +54,6 @@ public class Book implements Serializable {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public void setRackLocation(String rackLocation) {
-        this.rackLocation = rackLocation;
     }
 
     public void setUnitPrice(double unitPrice) {

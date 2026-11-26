@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="519.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.addNewBookToCatalogDataBaseController">
+<AnchorPane prefHeight="519.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.addnewbooktocatalogdatabasecontroller">
    <children>
       <Label layoutX="133.0" layoutY="14.0" text="Add New Book To Catalog Database">
          <font>
