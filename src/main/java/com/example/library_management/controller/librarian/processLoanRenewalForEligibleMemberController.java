@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Loantransaction;
 import utility.AlertGenerator;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -99,6 +100,7 @@ public class processLoanRenewalForEligibleMemberController
 
     @javafx.fxml.FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
     }
 
 }

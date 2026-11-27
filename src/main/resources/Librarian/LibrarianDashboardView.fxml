@@ -45,5 +45,6 @@
         <Button layoutX="6.0" layoutY="387.0" mnemonicParsing="false" onAction="#generatesDailyCirculationSummaryReportOA" prefHeight="44.0" prefWidth="194.0" text="Generates Daily Circulation Summary Report" />
         <Button layoutX="4.0" layoutY="500.0" mnemonicParsing="false" onAction="#logOutButtonOA" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: pink;" text="Log out" />
         <AnchorPane layoutX="201.0" layoutY="3.0" prefHeight="581.0" prefWidth="568.0" />
+      <Button layoutX="6.0" layoutY="442.0" mnemonicParsing="false" onAction="#backToHomePageOA" prefHeight="44.0" prefWidth="194.0" text="Back To Home Page" />
     </children>
 </AnchorPane>
