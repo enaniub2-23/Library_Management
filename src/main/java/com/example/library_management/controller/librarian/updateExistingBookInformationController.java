@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
 import utility.AlertGenerator;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -86,6 +87,7 @@ public class updateExistingBookInformationController
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
     }
 
     @javafx.fxml.FXML

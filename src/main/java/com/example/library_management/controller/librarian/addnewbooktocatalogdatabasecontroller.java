@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import nonuser.Book;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -98,6 +99,7 @@ public class addnewbooktocatalogdatabasecontroller
     }
     @javafx.fxml.FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
     }
 
 

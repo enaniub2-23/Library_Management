@@ -3,31 +3,24 @@ module com.example.library_management {
     requires javafx.fxml;
     requires java.desktop;
     requires jdk.compiler;
-
+    //requires com.example.library_management;
+    //requires com.example.library_management;
 
     opens com.example.library_management to javafx.fxml;
+    opens com.example.library_management.controller to javafx.fxml;
+    opens com.example.library_management.controller.librarian to javafx.fxml;
+    opens com.example.library_management.controller.bookSupplier to javafx.fxml;
+   // opens com.example.library_management.controller.libraryMember to javafx.fxml;
+   // opens com.example.library_management.controller.registrationOfficer to javafx.fxml;
+    opens user to javafx.base, javafx.fxml;
+    opens nonuser to javafx.base, javafx.fxml;
+
     exports com.example.library_management;
+    exports com.example.library_management.controller;
+    exports com.example.library_management.controller.librarian;
+    exports com.example.library_management.controller.bookSupplier;
+
+
+    exports user;
+    exports nonuser;
 }
-/*module com.library.library_management {
-    requires javafx.controls;
-    requires javafx.fxml;
-
-    // 1. Allows JavaFX to start your MainApplication class
-    exports com.library.library_management;
-
-    // 2. Allows FXML files to connect with @FXML variables & button methods in every controller package
-    opens com.library.library_management to javafx.fxml;
-    opens com.library.library_management.common to javafx.fxml;
-    opens com.library.library_management.member1_patron to javafx.fxml;
-    opens com.library.library_management.member2_desk to javafx.fxml;
-    opens com.library.library_management.member3_operations to javafx.fxml;
-    opens com.library.library_management.member4_finance to javafx.fxml;
-
-    // 3. Allows TableView (PropertyValueFactory) to read getters from your Model classes
-    opens com.library.library_management.model to javafx.base;
-
-    // 4. Allows packages to share classes with each other
-    exports com.library.library_management.model;
-    exports com.library.library_management.util;
-}
-*/

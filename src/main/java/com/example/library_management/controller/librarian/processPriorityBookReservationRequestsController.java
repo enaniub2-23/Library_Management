@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Reservation;
 import utility.AlertGenerator;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.security.KeyStore;
@@ -101,6 +102,7 @@ public class processPriorityBookReservationRequestsController
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
     }
 
 }

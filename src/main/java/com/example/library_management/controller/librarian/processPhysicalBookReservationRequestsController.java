@@ -8,6 +8,7 @@ import nonuser.Book;
 import nonuser.Loantransaction;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -125,6 +126,7 @@ public class processPhysicalBookReservationRequestsController
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
     }
 
 }

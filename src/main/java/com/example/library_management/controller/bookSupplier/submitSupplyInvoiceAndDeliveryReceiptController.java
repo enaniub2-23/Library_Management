@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import nonuser.Invoice;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -88,5 +89,6 @@ public class submitSupplyInvoiceAndDeliveryReceiptController
 
     @FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/BookSupplier/BookSupplierDashboardView.fxml",null);
     }
 }

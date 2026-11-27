@@ -5,6 +5,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import nonuser.Loantransaction;
 import utility.AlertGenerator;
+import utility.SceneSwitchingHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,6 +50,7 @@ public class generateDailyCirculationSummaryReportController
     }
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/LibrarianDashboardView.fxml",null);
 
     }
 
