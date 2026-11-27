@@ -14,9 +14,9 @@ public class registerNewLibraryMemberController
     @javafx.fxml.FXML
     private TextField nameTextField;
     @javafx.fxml.FXML
-    private Label showGeneratedMemberIdLabel;
-    @javafx.fxml.FXML
     private TextArea addressTextArea;
+    @javafx.fxml.FXML
+    private TextField memberIdTextField;
 
     @javafx.fxml.FXML
     public void initialize() {
