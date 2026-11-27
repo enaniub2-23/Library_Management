@@ -10,8 +10,8 @@ module com.example.library_management {
     opens com.example.library_management.controller to javafx.fxml;
     opens com.example.library_management.controller.librarian to javafx.fxml;
     opens com.example.library_management.controller.bookSupplier to javafx.fxml;
-   // opens com.example.library_management.controller.libraryMember to javafx.fxml;
-   // opens com.example.library_management.controller.registrationOfficer to javafx.fxml;
+    opens com.example.library_management.controller.LibraryMember to javafx.fxml;
+    opens com.example.library_management.controller.RegistrationOfficer to javafx.fxml;
     opens user to javafx.base, javafx.fxml;
     opens nonuser to javafx.base, javafx.fxml;
 

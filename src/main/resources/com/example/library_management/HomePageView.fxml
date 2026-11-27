@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="488.0" prefWidth="637.0" styleClass="bl" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.HomepageController">
    <children>
       <Label layoutX="86.0" layoutY="14.0" text="Public Library Management System">
@@ -18,7 +17,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="105.0" layoutY="134.0" mnemonicParsing="false" onAction="#librarianButtonOA" prefHeight="67.0" prefWidth="90.0" style="-fx-background-color: blue;" text="Librarian" textFill="#e4dddd" />
-      <Button layoutX="238.0" layoutY="134.0" mnemonicParsing="false" onAction="#bookSupplierButtonOA" prefHeight="67.0" prefWidth="90.0" style="-fx-background-color: green;" text="Book Supplier" textFill="#e4dddd" />
+      <Button layoutX="83.0" layoutY="134.0" mnemonicParsing="false" onAction="#librarianButtonOA" prefHeight="67.0" prefWidth="132.0" style="-fx-background-color: blue;" text="Librarian" textFill="#e4dddd" />
+      <Button layoutX="249.0" layoutY="134.0" mnemonicParsing="false" onAction="#bookSupplierButtonOA" prefHeight="67.0" prefWidth="159.0" style="-fx-background-color: Blue;" text="Book Supplier" textFill="#e4dddd" />
+      <Button layoutX="81.0" layoutY="251.0" mnemonicParsing="false" onAction="#libraryMemberButtonOnAction" prefHeight="67.0" prefWidth="132.0" style="-fx-background-color: purple;" text="Library Member" textFill="#e4dddd" />
+      <Button layoutX="249.0" layoutY="251.0" mnemonicParsing="false" onAction="#registrationOfficerButtonOnAction" prefHeight="67.0" prefWidth="159.0" style="-fx-background-color: purple;" text="Registration Officer" textFill="#e4dddd" />
    </children>
 </AnchorPane>
