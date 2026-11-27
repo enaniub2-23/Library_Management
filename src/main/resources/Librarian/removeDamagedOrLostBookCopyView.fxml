@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="504.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.removeDamageOrLostBookCopyController">
    <children>
       <Label layoutX="126.0" layoutY="14.0" text="Remove Damaged Or Lost Book Copy">
@@ -21,5 +20,6 @@
       <Button layoutX="109.0" layoutY="133.0" mnemonicParsing="false" onAction="#findBookOA" text="Find Book" />
       <Button layoutX="109.0" layoutY="172.0" mnemonicParsing="false" onAction="#removeCopyOA" text="Remove Copy" />
       <Button layoutX="514.0" layoutY="433.0" mnemonicParsing="false" onAction="#dashBoardOA" text="Back To Dahsoard" />
+      <Label fx:id="statusLabel" layoutX="112.0" layoutY="214.0" prefHeight="53.0" prefWidth="352.0" text="Label" />
    </children>
 </AnchorPane>

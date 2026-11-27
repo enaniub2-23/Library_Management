@@ -19,5 +19,6 @@
       <TextField fx:id="enterMemberIdTF" layoutX="151.0" layoutY="51.0" />
       <TextField fx:id="isbnNoTF" layoutX="151.0" layoutY="89.0" />
       <Button layoutX="453.0" layoutY="400.0" mnemonicParsing="false" onAction="#backToDashboardOA" text="Back To Dashboard" />
+      <Label fx:id="statusLabel" layoutX="49.0" layoutY="250.0" prefHeight="71.0" prefWidth="419.0" text="Label" />
    </children>
 </AnchorPane>

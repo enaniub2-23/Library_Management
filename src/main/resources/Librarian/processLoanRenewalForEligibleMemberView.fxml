@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.processLoanRenewalForEligibleMemberController">
    <children>
       <Label layoutX="108.0" layoutY="21.0" text="Process Loan Renewal for Eligible Member">
@@ -19,16 +18,16 @@
       <Label layoutX="60.0" layoutY="72.0" text="Enter Member ID:" />
       <TextField fx:id="memberIdTF" layoutX="170.0" layoutY="68.0" />
       <Button layoutX="376.0" layoutY="68.0" mnemonicParsing="false" onAction="#loadLoansOA" text="Load Loans" />
-      <TableView fx:id="loanTableView" layoutX="11.0" layoutY="116.0" prefHeight="163.0" prefWidth="616.0">
-        <columns>
-          <TableColumn fx:id="isbnCOL" prefWidth="143.3333387374878" text="ISBN " />
-          <TableColumn fx:id="issueDateCOL" prefWidth="112.66667175292969" text="Issue Date " />
-            <TableColumn fx:id="dueDateCOL" prefWidth="122.00003051757812" text="Due Date" />
-            <TableColumn fx:id="statusCOL" prefWidth="237.99990844726562" text="Status" />
-        </columns>
-      </TableView>
       <Button layoutX="9.0" layoutY="296.0" mnemonicParsing="false" onAction="#renewLoanOA" prefHeight="25.0" prefWidth="616.0" text="Renew Loan " />
       <Button layoutX="516.0" layoutY="417.0" mnemonicParsing="false" onAction="#backToDashBoardOA" text="Back To Dashboard" />
       <Label fx:id="statusLabel" layoutX="11.0" layoutY="338.0" prefHeight="63.0" prefWidth="451.0" text="empty" />
+      <TableView fx:id="loanTable" layoutX="38.0" layoutY="109.0" prefHeight="173.0" prefWidth="578.0">
+        <columns>
+          <TableColumn fx:id="isbnCOL" prefWidth="75.0" text="ISBN" />
+          <TableColumn fx:id="transactionCOL" prefWidth="163.99994659423828" text="TransactionID" />
+            <TableColumn fx:id="dueDateCOL" prefWidth="120.66671752929688" text="Due Date" />
+            <TableColumn fx:id="statusCOL" prefWidth="217.33334350585938" text="Status" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

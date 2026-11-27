@@ -2,7 +2,7 @@ package com.example.library_management.controller.librarian;
 
 import javafx.event.ActionEvent;
 
-public class dashboardController
+public class LibrarianDashboardController
 {
     @javafx.fxml.FXML
     public void initialize() {

@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="495.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.librarian.processPriorityBookReservationRequestsController">
    <children>
       <Label layoutX="182.0" layoutY="26.0" text="Book Reservation Requests">
@@ -19,7 +18,7 @@
         <columns>
           <TableColumn fx:id="resevationIdCOL" prefWidth="89.99996948242188" text="Reservation Id" />
           <TableColumn fx:id="memberIdCOL" prefWidth="138.66659545898438" text="Member Id" />
-            <TableColumn fx:id="requestIdCOL" prefWidth="137.33331298828125" text="Request Date" />
+            <TableColumn fx:id="isbnIdCOL" prefWidth="137.33331298828125" text="ISBN ID" />
             <TableColumn fx:id="statusCOL" prefWidth="218.0" text="Status" />
         </columns>
       </TableView>
