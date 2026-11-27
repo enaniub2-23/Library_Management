@@ -68,7 +68,7 @@ public class generateDailyCirculationSummaryReportController
             if("RETURNED".equalsIgnoreCase(tx.getStatus())){
                 returned++;
             }
-            if("ISSUED".equalsIgnoreCase(tx.getStatus())&&tx.getDueDate().isBefore()){
+            if("ISSUED".equalsIgnoreCase(tx.getStatus())&&tx.getDueDate().isBefore(date)){
                 overdue++;
             }
             totalBookIssueLabel.setText("Book Issued On Date"+issued);
