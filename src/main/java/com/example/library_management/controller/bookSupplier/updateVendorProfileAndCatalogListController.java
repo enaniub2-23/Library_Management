@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Book;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -67,6 +68,7 @@ public class updateVendorProfileAndCatalogListController
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/BookSupplier/BookSupplierDashboardView.fxml",null);
 
     }
 

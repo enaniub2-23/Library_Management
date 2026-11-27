@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.SceneSwitchingHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -60,6 +61,7 @@ public class receiveIncomingPurchaseOrdersController
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/BookSupplier/BookSupplierDashboardView.fxml",null);
     }
 
     @javafx.fxml.FXML

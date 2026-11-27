@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Invoice;
 import nonuser.PurchaseOrder;
+import utility.SceneSwitchingHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,6 +64,7 @@ public class trackInvoicePaymentStatusController
 
     @javafx.fxml.FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/BookSupplier/BookSupplierDashboardView.fxml",null);
 
     }
 
