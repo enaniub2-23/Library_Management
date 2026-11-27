@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
+import utility.AlertGenerator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class removeDamageOrLostBookCopyController
     public void findBookOA(ActionEvent actionEvent) throws IOException {
         String isbn = selectISBNNoTF.getText().trim();
         if(isbn.isEmpty()){
-            showAlert("Error","Enter ISBN");
+            AlertGenerator.showAlert("Error","Enter ISBN");
             return;
         }
         bookList=readBooks();
@@ -75,7 +76,7 @@ public class removeDamageOrLostBookCopyController
             }
         }
         if(targetBook == null){
-            showAlert("Error","Book not Found");
+            AlertGenerator.showAlert("Error","Book not Found");
             statusLabel.setText("ISBN NOT MATCHED");
         }else{
             statusLabel.setText("Book Found" + targetBook.getTitle() + " | Available Copies: " + targetBook.getAvailableCopies());
@@ -89,28 +90,22 @@ public class removeDamageOrLostBookCopyController
     @javafx.fxml.FXML
     public void removeCopyOA(ActionEvent actionEvent) throws IOException {
         if(targetBook == null){
-            showAlert("Error","Find a book First");
+            AlertGenerator.showAlert("Error","Find a book First");
             return;
         }
         String reason=removalReasonCB.getValue();
         if(reason==null){
-            showAlert("Error","Please Select a reason");
+            AlertGenerator.showAlert("Error","Please Select a reason");
             return;
         }
         if(targetBook.getAvailableCopies()<=0){
-            showAlert("Error","You dont have any copies to remove");
+            AlertGenerator.showAlert("Error","You dont have any copies to remove");
             return;
         }
         rewriteBooks(bookList);
         targetBook.updateStock(-1);
         statusLabel.setText(targetBook.getTitle() + " | Available Copies: " + targetBook.getAvailableCopies());
-        showAlert("Success","Book copy removed successfully");
+        AlertGenerator.showAlert("Success","Book copy removed successfully");
     }
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }

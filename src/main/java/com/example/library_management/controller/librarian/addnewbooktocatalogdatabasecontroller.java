@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
+import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
 
 import java.io.*;
@@ -54,7 +55,6 @@ public class addnewbooktocatalogdatabasecontroller
 
     @javafx.fxml.FXML
     public void validateAndSaveBookOA(ActionEvent actionEvent) throws IOException {
-        Alert a=new Alert(Alert.AlertType.ERROR);
         String isbn = isbnTF.getText().trim();
         String author = authorTF.getText().trim();
         String category= categoryCB.getValue();
@@ -63,20 +63,18 @@ public class addnewbooktocatalogdatabasecontroller
         try{
             copies=Integer.parseInt(copiesTF.getText().trim());
             if(isbn.length() !=13 || title.isEmpty()||category ==null || copies<0 ){
-                a.setContentText("Validation Error ,Enter 13-digit isbn,Title,Author,Category,and add copies");
-                a.showAndWait();
+                AlertGenerator.showAlert("Validation Error" ,"Enter 13-digit isbn,Title,Author,Category,and add copies");
                 return;
             }
         } catch (NumberFormatException e){
-            a.setContentText("Validation Error , Copies must be a numeric value.");
-            a.showAndWait();
+            AlertGenerator.showAlert("Validation Error "," Copies must be a numeric value.");
             return;
+
         }
         ArrayList<Book> bookList2= readBooks();
         for (Book b : bookList2){
             if(b.getIsbn().equals(isbn)){
-                a.setContentText("Duplicate ISBN ,Book With This Isbn Already Exists");
-                a.showAndWait();
+                AlertGenerator.showAlert("Duplicate ISBN" ,"Book With This Isbn Already Exists");
                 return;
             }
         }
@@ -96,7 +94,7 @@ public class addnewbooktocatalogdatabasecontroller
         oos.close();
 
         statusLabel.setText("Saved: " + title);
-        a.setContentText("Book Added Success Fully");
+        AlertGenerator.showAlert("Success" ,"Book Added Success Fully");
     }
     @javafx.fxml.FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {

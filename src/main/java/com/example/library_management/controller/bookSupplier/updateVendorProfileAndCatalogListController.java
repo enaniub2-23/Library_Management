@@ -73,16 +73,34 @@ public class updateVendorProfileAndCatalogListController
     @javafx.fxml.FXML
     public void addAndSaveCatalogOA(ActionEvent actionEvent) throws IOException {
         String title = titleTF.getText().trim();
+        String phone=phoneNoTF.getText().trim();
         double price;
+        if(phone.length()<11){
+            AlertGenerator.showAlert("Error","Please Enter a Valid 11 digit Phone no");
+            return;
+        }
         try{
             price=Double.parseDouble(wholeSalePriceTF.getText().trim());
+            if(price<=0){
+                AlertGenerator.showAlert("Error","whole sale price must be greater than 0");
+                return;
+            }
         } catch (NumberFormatException e){
             AlertGenerator.showAlert("Error","Price Must be Numeric");
             return;
         }
+
+        ArrayList<Book> bookList = readCatalog();
+        for(Book b:bookList){
+            if(b.getTitle().equalsIgnoreCase(title)){
+                AlertGenerator.showAlert("Duplicate Book","This Book Title Already Exists");
+                return;
+            }
+        }
         ArrayList<Book> list = readCatalog();
-        String code="SUP-"+(1001 + list.size());
-        //Book item = new Book();
+        String isbn="CTT-" +(list.size()+1);
+        Book newBook=new Book(isbn,title,"Vendor Supplied","General",1,price);
+
         File f = new File("SupplierCatalog.bin");
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -95,9 +113,11 @@ public class updateVendorProfileAndCatalogListController
             oos = new ObjectOutputStream(fos);
 
         }
-       // oos.writeObject(item);
+        oos.writeObject(newBook);
         oos.close();
         loadCatalogTable();
         AlertGenerator.showAlert("Success","Catalog item saved.");
+        titleTF.clear();
+        wholeSalePriceTF.clear();
     }
 }

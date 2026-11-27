@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
 import nonuser.Loantransaction;
+import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
 
 import java.io.*;
@@ -75,7 +76,7 @@ public class processPhysicalBookReservationRequestsController
         try{
             memberId=Integer.parseInt(enterMemberIdTF.getText().trim());
         } catch (NumberFormatException e){
-            showAlert("Error","Member Id must be Numeric");
+            AlertGenerator.showAlert("Error","Member Id must be Numeric");
             return;
         }
 
@@ -88,7 +89,7 @@ public class processPhysicalBookReservationRequestsController
             }
         }
         if(target ==null || !target.isAvailable()){
-            showAlert("Unavailable","Out of Stock");
+            AlertGenerator.showAlert("Unavailable","Out of Stock");
             return;
         }
 
@@ -116,7 +117,7 @@ public class processPhysicalBookReservationRequestsController
         }
         bookOos.close();
         statusLabel.setText("Issued" + txId +" | Due"+due);
-        showAlert("Success","Book Issued Successfully.Due Date: "+due);
+        AlertGenerator.showAlert("Success","Book Issued Successfully.Due Date: "+due);
 
 
 
@@ -125,11 +126,5 @@ public class processPhysicalBookReservationRequestsController
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
     }
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }

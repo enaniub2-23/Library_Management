@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
+import utility.AlertGenerator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -97,14 +98,8 @@ public class updateExistingBookInformationController
         targetBook.setCategory(categoryCB.getValue());
         rewriteBooks(bookList);
         statusLabel.setText("Book updated");
-        showAlert("Success","Book Record Updated Successfully");
+        AlertGenerator.showAlert("Success","Book Record Updated Successfully");
 
     }
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }

@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import nonuser.Book;
 import nonuser.Loantransaction;
+import utility.AlertGenerator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class processReturnBookController
         try{
             memberId=Integer.parseInt(enterMemberIdTF.getText().trim());
         }catch (NumberFormatException e){
-            showAlert("Error","Member Id must be numeric");
+            AlertGenerator.showAlert("Error","Member Id must be numeric");
             return;
         }
         boolean found =false;
@@ -82,7 +83,7 @@ public class processReturnBookController
             }
         }
         if(!found){
-            showAlert("Not Found","No Active ISSUED loan found");
+            AlertGenerator.showAlert("Not Found","No Active ISSUED loan found");
             return;
         }
         FileOutputStream txfos =new FileOutputStream("Transaction.bin");
@@ -105,14 +106,8 @@ public class processReturnBookController
             bOos.writeObject(b);
         }
         bOos.close();
-        showAlert("Success","Book returned Successfully");
+        AlertGenerator.showAlert("Success","Book returned Successfully");
 
     }
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }
