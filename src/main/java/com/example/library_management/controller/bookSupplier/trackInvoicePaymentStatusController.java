@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Invoice;
 import nonuser.PurchaseOrder;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.File;
@@ -43,24 +44,7 @@ public class trackInvoicePaymentStatusController
         statusCOL.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
     private ArrayList<Invoice> invList = new ArrayList<>();
-    public ArrayList<Invoice> readInvoices() throws IOException {
-        File f = new File("Invoices.bin");
-        if(!f.exists()){
-            return invList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                Invoice i =(Invoice) ois.readObject();
-                invList.add(i);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return invList;
 
-    }
 
     @javafx.fxml.FXML
     public void backToDashBoardOA(ActionEvent actionEvent) {
@@ -70,11 +54,11 @@ public class trackInvoicePaymentStatusController
 
 
     @javafx.fxml.FXML
-    public void checkStatusOA(ActionEvent actionEvent) throws IOException {
+    public void checkStatusOA(ActionEvent actionEvent)  {
         String filter = paymentStatusCB.getValue();
         paymentTableView.getItems().clear();
         double unPaidSum=0.0;
-        ArrayList<Invoice> invList= readInvoices();
+        ArrayList<Invoice> invList= BinaryFileHandler.readAll("Invoices.bin");
         for(Invoice inv: invList){
             if(!inv.isSettled()){
                 unPaidSum=unPaidSum +inv.getTotalAmount();

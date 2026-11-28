@@ -3,6 +3,7 @@ module com.example.library_management {
     requires javafx.fxml;
     requires java.desktop;
     requires jdk.compiler;
+    requires java.logging;
     //requires com.example.library_management;
     //requires com.example.library_management;
 

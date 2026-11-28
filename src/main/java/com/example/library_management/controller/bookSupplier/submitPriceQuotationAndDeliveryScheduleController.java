@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -28,28 +29,10 @@ public class submitPriceQuotationAndDeliveryScheduleController
     public void initialize() {
     }
     private ArrayList<PurchaseOrder> poList=new ArrayList<>();
-    public ArrayList<PurchaseOrder> readOrders() throws IOException {
-        poList.clear();
-        File f = new File("PurchaseOrders.bin");
-        if(!f.exists()){
-            return poList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                PurchaseOrder p =(PurchaseOrder) ois.readObject();
-                poList.add(p);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return poList;
 
-    }
 
     @FXML
-    public void submitQuotationOA(ActionEvent actionEvent) throws IOException {
+    public void submitQuotationOA(ActionEvent actionEvent)  {
         String poId=poIdTF.getText().trim();
         double price;
         double discount;
@@ -66,17 +49,14 @@ public class submitPriceQuotationAndDeliveryScheduleController
             AlertGenerator.showAlert("Validation Error","PO ID Cant be Empty , Price & Delivery Days must be >0,Discount >=0");
             return;
         }
-        ArrayList<PurchaseOrder> poList=readOrders();
+        ArrayList<PurchaseOrder> poList= BinaryFileHandler.readAll("PurchaseOrders.bin");
         for (PurchaseOrder p: poList){
             if(p.getPoId().equalsIgnoreCase(poId)){
                 double finalPrice= price*(1-discount/100.0);
                 p.attachQuotation(finalPrice);
             }
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("PurchaseOrders.bin"));
-            for(PurchaseOrder pr:poList){
-                oos.writeObject(pr);
-            }
-            oos.close();
+            BinaryFileHandler.rewriteAll("PurchaseOrders.bin",poList);
+
             statusLabel.setText("Quotation save for"+poId);
             AlertGenerator.showAlert("Success","Quotation Submitted");
             return;

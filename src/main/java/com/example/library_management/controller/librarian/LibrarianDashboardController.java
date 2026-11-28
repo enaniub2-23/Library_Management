@@ -16,7 +16,7 @@ public class LibrarianDashboardController
 
     @javafx.fxml.FXML
     public void updateExistingBookInformationOA(ActionEvent actionEvent) {
-        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/updateExistingBookInformationCopyView.fxml",null);
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/updateExistingBookInformationView.fxml",null);
     }
 
     @javafx.fxml.FXML
@@ -36,7 +36,7 @@ public class LibrarianDashboardController
 
     @javafx.fxml.FXML
     public void removedDamagedOrLostBookCopyOA(ActionEvent actionEvent) {
-        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/removedDamagedOrLostBookCopyView.fxml",null);
+        SceneSwitchingHelper.switchSceneWithData(actionEvent,"/Librarian/removeDamagedOrLostBookCopyView.fxml",null);
     }
 
     @javafx.fxml.FXML
