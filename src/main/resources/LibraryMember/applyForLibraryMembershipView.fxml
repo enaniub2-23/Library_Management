@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.LibraryMember.applyForLibraryMembershipController">
    <children>
       <Text layoutX="34.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
@@ -18,6 +17,6 @@
       <TextField fx:id="phoneTextField" layoutX="88.0" layoutY="84.0" />
       <TextField fx:id="nidTextField" layoutX="88.0" layoutY="125.0" />
       <Button layoutX="339.0" layoutY="326.0" mnemonicParsing="false" onAction="#validateAndSubmitButtonOnAction" prefHeight="26.0" prefWidth="166.0" text="Validate And Submit " />
-      <Button layoutX="42.0" layoutY="326.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="26.0" prefWidth="150.0" text="Back to Dashboard" />
+      <Button layoutX="42.0" layoutY="325.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="52.0" prefWidth="150.0" style="-fx-background-color: pink;" text="Back to Dashboard" />
    </children>
 </AnchorPane>

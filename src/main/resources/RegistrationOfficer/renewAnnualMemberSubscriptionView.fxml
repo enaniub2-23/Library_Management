@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.RegistrationOfficer.renewAnnualMemberSubscriptionController">
    <children>
       <Text layoutX="60.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memebr ID:" />
@@ -14,6 +13,6 @@
       <Text layoutX="27.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Renewal Duration:" />
       <ComboBox fx:id="renewalDurationComboBox" layoutX="146.0" layoutY="72.0" prefWidth="150.0" />
       <Button layoutX="27.0" layoutY="136.0" mnemonicParsing="false" onAction="#confirmRenewalButtonOnAction" prefHeight="26.0" prefWidth="175.0" text="Confirm Renewal" />
-      <Button layoutX="37.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="26.0" prefWidth="204.0" text="Back To Dashboard" />
+      <Button layoutX="37.0" layoutY="320.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: pink;" text="Back To Dashboard" />
    </children>
 </AnchorPane>
