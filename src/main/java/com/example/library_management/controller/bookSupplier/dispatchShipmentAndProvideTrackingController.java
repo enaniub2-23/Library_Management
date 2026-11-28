@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -26,46 +27,26 @@ public class dispatchShipmentAndProvideTrackingController
     public void initialize() {
     }
     private ArrayList<PurchaseOrder> poList= new ArrayList<>();
-    public ArrayList<PurchaseOrder> readOrders() throws IOException {
-        poList.clear();
-        File f = new File("PurchaseOrders.bin");
-        if(!f.exists()){
-            return poList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                PurchaseOrder p =(PurchaseOrder) ois.readObject();
-                poList.add(p);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return poList;
 
-    }
 
     @javafx.fxml.FXML
-    public void confirmDispatchOA(ActionEvent actionEvent) throws IOException {
+    public void confirmDispatchOA(ActionEvent actionEvent){
         String poId=poIdTF.getText().trim();
         String courier= courierNameTF.getText().trim();
-        String track= trackingNoTF.getText();
+        String track= trackingNoTF.getText().trim();
         if(poId.isEmpty()||courier.isEmpty()||track.isEmpty()){
             AlertGenerator.showAlert("Validation Error","POID ,Courier,trackNo cant be empty");
             return;
         }
-        ArrayList<PurchaseOrder> poList=readOrders();
+        ArrayList<PurchaseOrder> poList= BinaryFileHandler.readAll("PurchaseOrders.bin");
         for(PurchaseOrder p:poList){
             if(p.getPoId().equalsIgnoreCase(poId) && "STOCK_ALLOCATED".equalsIgnoreCase(p.getStatus())){
                 p.markDispatched(courier+ "_" + track);
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("PurchaseOrders.bin"));
-                for (PurchaseOrder pr: poList){
-                    oos.writeObject(pr);
-                }
-                oos.close();
+                BinaryFileHandler.rewriteAll("PurchaseOrders.bin",poList);
+
                 statusLabel.setText("Dispatched"+ poId);
                 AlertGenerator.showAlert("Success","Shipment Dispatched");
+                return;
             }
         }
     }

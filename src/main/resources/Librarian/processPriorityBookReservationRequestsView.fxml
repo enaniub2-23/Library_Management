@@ -14,7 +14,7 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="reservationTableView" layoutX="27.0" layoutY="126.0" prefHeight="152.0" prefWidth="581.0">
+      <TableView fx:id="reservationTableView" layoutX="27.0" layoutY="94.0" prefHeight="184.0" prefWidth="581.0">
         <columns>
           <TableColumn fx:id="resevationIdCOL" prefWidth="89.99996948242188" text="Reservation Id" />
           <TableColumn fx:id="memberIdCOL" prefWidth="138.66659545898438" text="Member Id" />
@@ -22,7 +22,6 @@
             <TableColumn fx:id="statusCOL" prefWidth="218.0" text="Status" />
         </columns>
       </TableView>
-      <Button layoutX="27.0" layoutY="89.0" mnemonicParsing="false" onAction="#refreshButtonOA" prefHeight="25.0" prefWidth="581.0" text="Refresh " />
       <Button layoutX="27.0" layoutY="290.0" mnemonicParsing="false" onAction="#approveAndHoldForPickupOA" prefHeight="25.0" prefWidth="581.0" text="Approve &amp; Hold Button For pickup" />
       <Label fx:id="statusLabel" layoutX="29.0" layoutY="332.0" prefHeight="85.0" prefWidth="441.0" text="empty" />
       <Button layoutX="502.0" layoutY="438.0" mnemonicParsing="false" onAction="#backToDashboardOA" text="Back To Dashboard" />

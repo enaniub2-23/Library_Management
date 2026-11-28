@@ -8,11 +8,13 @@ import nonuser.Book;
 import nonuser.Loantransaction;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
 
 public class processPhysicalBookReservationRequestsController
 {
@@ -99,18 +101,7 @@ public class processPhysicalBookReservationRequestsController
         LocalDate due =LocalDate.now().plusDays(14);
 
         Loantransaction tx = new Loantransaction(txId,memberId,isbn,LocalDate.now(),due,"ISSUED");
-        File f = new File("Transaction.bin");
-        FileOutputStream fos;
-        ObjectOutputStream oos;
-        if(f.exists()){
-            fos =new FileOutputStream(f,true);
-            oos=new AppendableObjectOutputStream(fos);
-        }else {
-            fos = new FileOutputStream(f);
-            oos = new ObjectOutputStream(fos);
-        }
-        oos.writeObject(tx);
-        oos.close();
+        BinaryFileHandler.appendObject("Transaction.bin",tx);
         target.updateStock(-1);
         ObjectOutputStream bookOos=new ObjectOutputStream(new FileOutputStream("Book.bin"));
         for(Book b:bookList){

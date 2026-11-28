@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import nonuser.Book;
 import utility.AlertGenerator;
 import utility.AppendableObjectOutputStream;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -80,19 +81,7 @@ public class addnewbooktocatalogdatabasecontroller
             }
         }
         Book newBook = new Book(isbn, title, author, category, copies, 0.0);
-        File f = new File("Books.bin");
-        FileOutputStream fos;
-        ObjectOutputStream oos;
-
-        if (f.exists()) {
-            fos = new FileOutputStream(f, true);
-            oos = new AppendableObjectOutputStream(fos);
-        } else {
-            fos = new FileOutputStream(f);
-            oos = new ObjectOutputStream(fos);
-        }
-        oos.writeObject(newBook);
-        oos.close();
+        BinaryFileHandler.appendObject("Book.bin",newBook);
 
         statusLabel.setText("Saved: " + title);
         AlertGenerator.showAlert("Success" ,"Book Added Success Fully");

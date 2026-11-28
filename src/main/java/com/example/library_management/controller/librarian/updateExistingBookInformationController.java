@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -32,40 +33,14 @@ public class updateExistingBookInformationController
     public void initialize() {
         categoryCB.getItems().addAll("Fiction","Non-Fiction","History","Academic");
     }
-    public ArrayList<Book> readBooks() throws IOException {
-        bookList.clear();
-        File f = new File("Books.bin");
-        if(!f.exists()){
-            return bookList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                Book b =(Book) ois.readObject();
-                bookList.add(b);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return bookList;
 
-    }
-    public void rewriteBooks(ArrayList<Book> bookList) throws IOException {
-        FileOutputStream fos = new FileOutputStream("Books.bin");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        for (Book b:bookList){
-            oos.writeObject(b);
-        }
-        oos.close();
 
-    }
 
 
     @javafx.fxml.FXML
-    public void searchBookOA(ActionEvent actionEvent) throws IOException {
+    public void searchBookOA(ActionEvent actionEvent) {
         String isbn= isbnNoTF.getText().trim();
-        bookList=readBooks();
+        bookList= BinaryFileHandler.readAll("Books.bin");
         targetBook=null;
         for(Book b:bookList){
             if(b.getIsbn().equals(isbn)){
@@ -98,7 +73,7 @@ public class updateExistingBookInformationController
         targetBook.setTitle(titleTF.getText().trim());
         targetBook.setAuthor(authorTF.getText().trim());
         targetBook.setCategory(categoryCB.getValue());
-        rewriteBooks(bookList);
+        BinaryFileHandler.rewriteAll("Books.bin",bookList);
         statusLabel.setText("Book updated");
         AlertGenerator.showAlert("Success","Book Record Updated Successfully");
 

@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.Reservation;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -42,28 +43,9 @@ public class processPriorityBookReservationRequestsController
         }
     }
     private ArrayList<Reservation>rList=new ArrayList<>();
-    public ArrayList<Reservation> readReservations() throws IOException {
-        rList.clear();
-        File f = new File("Reservations.bin");
-        if(!f.exists()){
-            return rList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                Reservation r =(Reservation) ois.readObject();
-                rList.add(r);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return rList;
-
-    }
     private void loadPendingTable() throws IOException {
         reservationTableView.getItems().clear();
-        ArrayList<Reservation> rList=readReservations();
+        ArrayList<Reservation> rList= BinaryFileHandler.readAll("Reservations.bin");
         for(Reservation r: rList){
             if("PENDING".equalsIgnoreCase(r.getStatus())){
                 reservationTableView.getItems().add(r);
@@ -79,15 +61,11 @@ public class processPriorityBookReservationRequestsController
             AlertGenerator.showAlert("Error","Select a reservation row.");
             return;
         }
-        ArrayList<Reservation> rList=readReservations();
+        ArrayList<Reservation> rList=BinaryFileHandler.readAll("Reservations.bin");
         for(Reservation r:rList){
             if(r.getReservationId().equals(selected.getReservationId())){
                 r.activateHold();
-                ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream("Reservation.bin"));
-                for(Reservation item:rList){
-                    oos.writeObject(item);
-                }
-                oos.close();
+                BinaryFileHandler.rewriteAll("Reservations.bin",rList);
                 statusLabel.setText("Hold Activate For"+r.getReservationId());
                 AlertGenerator.showAlert("Success","Book held for priority pickup");
                 loadPendingTable();
@@ -96,9 +74,7 @@ public class processPriorityBookReservationRequestsController
         }
     }
 
-    @javafx.fxml.FXML
-    public void refreshButtonOA(ActionEvent actionEvent) {
-    }
+
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {

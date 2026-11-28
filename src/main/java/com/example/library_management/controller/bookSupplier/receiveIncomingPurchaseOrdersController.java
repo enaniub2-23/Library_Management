@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.File;
@@ -39,25 +40,6 @@ public class receiveIncomingPurchaseOrdersController
         quantityCOL.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
     private ArrayList<PurchaseOrder> poList=new ArrayList<>();
-    public ArrayList<PurchaseOrder> readOrders() throws IOException {
-        poList.clear();
-        File f = new File("PurchaseOrders.bin");
-        if(!f.exists()){
-            return poList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                PurchaseOrder p =(PurchaseOrder) ois.readObject();
-                poList.add(p);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return poList;
-
-    }
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
@@ -65,13 +47,13 @@ public class receiveIncomingPurchaseOrdersController
     }
 
     @javafx.fxml.FXML
-    public void loadOrdersOA(ActionEvent actionEvent) throws IOException {
+    public void loadOrdersOA(ActionEvent actionEvent)  {
         String filter =selectOrderStatusCB.getValue();
         if(filter==null){
             AlertGenerator.showAlert("Error","Select a Status First");
         }
         ordersTableView.getItems().clear();
-        ArrayList<PurchaseOrder> poList= readOrders();
+        ArrayList<PurchaseOrder> poList= BinaryFileHandler.readAll("PurchaseOrders.bin");
         for(PurchaseOrder p:poList){
             if(p.getStatus().equalsIgnoreCase(filter)){
                 ordersTableView.getItems().add(p);

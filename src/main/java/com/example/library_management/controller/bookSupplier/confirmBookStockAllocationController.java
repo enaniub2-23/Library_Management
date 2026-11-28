@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -26,24 +27,6 @@ public class confirmBookStockAllocationController
         estimatePickingDateDP.setValue(LocalDate.now().plusDays(2));
     }
     private ArrayList<PurchaseOrder> poList= new ArrayList<>();
-    public ArrayList<PurchaseOrder> readOrders() throws IOException {
-        poList.clear();
-        File f = new File("PurchaseOrders.bin");
-        if(!f.exists()){
-            return poList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                PurchaseOrder p =(PurchaseOrder) ois.readObject();
-                poList.add(p);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return poList;
-    }
 
     @javafx.fxml.FXML
     public void backToDashboardOA(ActionEvent actionEvent) {
@@ -53,15 +36,12 @@ public class confirmBookStockAllocationController
     @javafx.fxml.FXML
     public void confirmAllocationOA(ActionEvent actionEvent) throws IOException {
         String poId=poIdTF.getText().trim();
-        ArrayList<PurchaseOrder> poList=readOrders();
+        ArrayList<PurchaseOrder> poList= BinaryFileHandler.readAll("PurchaseOrders.bin");
         for(PurchaseOrder p:poList){
             if(p.getPoId().equalsIgnoreCase(poId) && "ORDERED".equalsIgnoreCase(p.getStatus())){
                 p.setStatus("STOCK_ALLOCATED");
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("PurchaseOrder.bin"));
-                for(PurchaseOrder pr: poList){
-                    oos.writeObject(pr);
-                }
-                oos.close();
+                BinaryFileHandler.rewriteAll("PurchaseOrders.bin",poList);
+
                 statusLabel.setText("Stock Allocated for"+poId);
                 AlertGenerator.showAlert("Success","Stock Allocation Confirmed");
             }

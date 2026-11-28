@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.PurchaseOrder;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -28,23 +29,7 @@ public class processReplacementForDamagedItemsController
 
     }
     private ArrayList<PurchaseOrder> poList = new ArrayList<>();
-    public ArrayList<PurchaseOrder> readOrders() throws IOException {
-        File f = new File("PurchaseOrders.bin");
-        if(!f.exists()){
-            return poList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                PurchaseOrder p =(PurchaseOrder) ois.readObject();
-                poList.add(p);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return poList;
-    }
+
 
     @javafx.fxml.FXML
     public void submitResolutionOA(ActionEvent actionEvent) throws IOException {
@@ -61,15 +46,12 @@ public class processReplacementForDamagedItemsController
             AlertGenerator.showAlert("Error","PO id , Damaged Copy count resolution selection is missing");
             return;
         }
-        ArrayList<PurchaseOrder> poList= readOrders();
+        ArrayList<PurchaseOrder> poList= BinaryFileHandler.readAll("PurchaseOrders.bin");
         for (PurchaseOrder po:poList){
             if(po.getPoId().equalsIgnoreCase(poId)){
                 po.setStatus("REPLACEMENT_LOGGED");
-                ObjectOutputStream oos =new ObjectOutputStream(new FileOutputStream("PurchaseOrders.bin"));
-                for(PurchaseOrder item :poList){
-                    oos.writeObject(item);
-                }
-                oos.close();
+                BinaryFileHandler.rewriteAll("PurchaseOrders.bin",poList);
+
                 statusLabel.setText("Logged " + resolution + " (" + damagedQty + " copies) for " + poId);
                 AlertGenerator.showAlert("Success", resolution + " recorded for " + damagedQty + " damaged copies.");
                 return;

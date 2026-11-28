@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import nonuser.Book;
 import utility.AlertGenerator;
+import utility.BinaryFileHandler;
 import utility.SceneSwitchingHelper;
 
 import java.io.*;
@@ -28,25 +29,7 @@ public class removeDamageOrLostBookCopyController
     public void initialize() {
         removalReasonCB.getItems().addAll("Damaged","Lost");
     }
-    public ArrayList<Book> readBooks() throws IOException {
-        bookList.clear();
-        File f = new File("Books.bin");
-        if(!f.exists()){
-            return bookList;
-        }
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        try{
-            while(true){
-                Book b =(Book) ois.readObject();
-                bookList.add(b);
-            }
-        }catch (Exception e){
-        }
-        ois.close();
-        return bookList;
 
-    }
     public void rewriteBooks(ArrayList<Book> bookList) throws IOException {
         FileOutputStream fos = new FileOutputStream("Books.bin");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -67,7 +50,7 @@ public class removeDamageOrLostBookCopyController
             AlertGenerator.showAlert("Error","Enter ISBN");
             return;
         }
-        bookList=readBooks();
+        bookList= BinaryFileHandler.readAll("Books.bin");
 
         targetBook = null;
         for(Book b:bookList){
