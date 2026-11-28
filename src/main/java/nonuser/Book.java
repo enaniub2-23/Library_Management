@@ -10,7 +10,8 @@ public class Book implements Serializable {
     private int availableCopies;
     private double unitPrice;
 
-    public Book(String isbn, String title, String author, String category, int availableCopies, double unitPrice) {
+    public Book(String isbn, String title, String author, String category,
+                 int availableCopies, double unitPrice) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -35,7 +36,6 @@ public class Book implements Serializable {
         return category;
     }
 
-
     public int getAvailableCopies() {
         return availableCopies;
     }
@@ -56,13 +56,30 @@ public class Book implements Serializable {
         this.category = category;
     }
 
+
+
+
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
-    public boolean isAvailable(){
-        return availableCopies>0;
+
+    public boolean isAvailable() {
+        return availableCopies > 0;
     }
-    public void updateStock(int quantityChange){
-        this.availableCopies =this.availableCopies+quantityChange;
+
+    public void updateStock(int quantityChange) {
+        this.availableCopies = this.availableCopies + quantityChange;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", category='" + category + '\'' +
+                ", availableCopies=" + availableCopies +
+                ", unitPrice=" + unitPrice +
+                '}';
     }
 }

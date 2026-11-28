@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management.controller.RegistrationOfficer.generateRegistrationSummaryReportController">
    <children>
       <Text layoutX="27.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date :" />
@@ -13,6 +12,6 @@
       <DatePicker fx:id="endDateDatePicker" layoutX="100.0" layoutY="66.0" prefHeight="26.0" prefWidth="154.0" />
       <DatePicker fx:id="startDateDatePicker" layoutX="100.0" layoutY="21.0" prefHeight="26.0" prefWidth="154.0" />
       <Button layoutX="28.0" layoutY="127.0" mnemonicParsing="false" onAction="#generateRegistrationReportButtonOnAction" prefHeight="26.0" prefWidth="194.0" text="Generate Registration Report" />
-      <Button layoutX="34.0" layoutY="336.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="26.0" prefWidth="168.0" text="Back To Dashboard" />
+      <Button layoutX="28.0" layoutY="325.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" prefHeight="53.0" prefWidth="168.0" style="-fx-background-color: pink;" text="Back To Dashboard" />
    </children>
 </AnchorPane>

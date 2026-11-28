@@ -16,7 +16,7 @@
       <TextField fx:id="phoneTextField" layoutX="85.0" layoutY="106.0" />
       <Text layoutX="24.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :" />
       <TextArea fx:id="addressTextArea" layoutX="85.0" layoutY="142.0" prefHeight="43.0" prefWidth="200.0" />
-      <Button layoutX="26.0" layoutY="338.0" mnemonicParsing="false" onAction="#backToDashBoardButtonOnAction" prefHeight="26.0" prefWidth="180.0" text="Back To Dashboard" />
+      <Button layoutX="26.0" layoutY="332.0" mnemonicParsing="false" onAction="#backToDashBoardButtonOnAction" prefHeight="53.0" prefWidth="180.0" style="-fx-background-color: pink;" text="Back To Dashboard" />
       <Button layoutX="33.0" layoutY="273.0" mnemonicParsing="false" onAction="#validateAndConfirmRegistrationButtonOnAction" prefHeight="26.0" prefWidth="222.0" text="Validate And Confirm Registration" />
       <Text layoutX="15.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID :" />
       <TextField fx:id="memberIdTextField" layoutX="88.0" layoutY="205.0" />
